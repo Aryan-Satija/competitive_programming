@@ -1,0 +1,49 @@
+=> gcd => greatest common divisor
+=> euclid's algorithm (long division method)
+=> gcd(a, b) = gcd(b%a, a)
+int gcd(a, b){
+    if(b%a == 0) return a;
+    return gcd(b%a, a);
+}
+
+=> O(logn)
+=> use cpp inbuilt function __gcd(a, b)
+
+=> lcm => least common multiple
+=> gcd(a, b)*lcm(a, b) = a*b
+=> proof:
+=> prime factorisation of a = (p1^x)*(p2^y)*(p4^z)...
+=> prime factorisation of b = (p1^u)*(p2^v)*(p4^w)...
+=> lcm(a, b) = (p1^(max(x, y)))*(p2^(max(v, y)))....
+=> gcd(a, b) = (p1^(min(x, y)))*(p2^(min(v, y)))....
+
+=> goldbach's conjecture:
+=> (every even number can be written as a sum of two primes)
+
+=> calculating divisors of a number
+=> O(sqrt(n))
+
+36
+|          
+|    1 X 36 
+|    2 X 18
+|    3 X 12
+|    4 X 9
+|    6 X 6
+V
+=> IF I DIVISOR (N/I) ALSO DIVISOR
+
+=> sieve algorithm
+=> O(nlog(logn))
+
+
+=> (a+b)%m = ((a%m) + (b%m))%m
+=> (a-b)%m = ((a%m) - (b%m) + m)%m
+=> (a*b)%m = ((a%m) * (b%m))%m
+=> (a/b)%m = (a*(b^-1))%m
+=>         = (a%m * (b^-1)%m)%m
+=> now , (b^-1)%m is known as mmi(modular multiplicative inverse) of b
+=> if (a*x)%m = 1, for some x < n, then this x would be the mmi of a
+=> now, by fermat's little theorem,
+=> (b^(m-1)%m) = 1, also known as the congruency of numbers 
+=> so, (b^-1)%m = (b^(m-2))%m
