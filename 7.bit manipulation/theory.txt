@@ -1,0 +1,36 @@
+&             bitwise and
+|             bitwise or
+^             bitwise xor
+~             bitwise not
+<<            leftshift operator
+>>            rightshift operator
+------------------EVEN---------------------
+LSB = 0
+N & 1 = 0
+------------------ODD---------------------
+LSB = 1
+N & 1 = 0
+
+
+
+------------------MULTIPLY BY 2---------------------
+LEFT SHIFT OPERATOR : << 
+------------------DIVIDE BY 2---------------------
+RIGHT SHIFT OPERATOR : >>
+
+
+
+------------------OP POINTS---------------------
+a^a^b^c^c^b^x = 0^x = x
+------------------TO SET RIGHTMOST UNSET BIT---------------------
+N | (N + 1)
+------------------TO UNSET RIGHTMOST SET BIT(brian kernighan)---------------------
+N & (N - 1)                                     
+------------------SET BITS UPTO N------------------
+int countSetBits(int N)
+{
+    long long int res = 0;
+    for(long long int i = 1; i < 32; i++) 
+        res = res + ((N + 1)/(1 << i))*(1 << (i - 1)) + max(0,(((N + 1)%(1 << i)) - (1 << (i - 1))));
+    return res;
+}
