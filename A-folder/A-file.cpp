@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define MOD 1000000007
+#define mod 1000000007
 
 #define ll long long
 #define pii pair<int, int>
