@@ -14,8 +14,8 @@ using namespace std;
 #define mii map<int, int>
 #define umii unordered_map<int, int>
 #define si set<int>
-#define rep(i, n) for(ll i = 0; i < n; i++)
-#define ren(i, n) for(ll i = (n-1); i >= 0; i--)
+#define rep(i, s, e) for(ll i = s; i <= e; i++)
+#define ren(i, s, e) for(ll i = s; i >= e; i--)
 
 vector<int> nse(vector<int>& arr) {
     vector<int> result(arr.size(), -1); 
