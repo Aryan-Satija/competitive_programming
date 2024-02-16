@@ -7,7 +7,10 @@ using namespace std;
 #define pii pair<int, int>
 #define pll pair<long long, long long>
 #define vi vector<int>
+#define vb vector<bool>
 #define vvi vector<vector<int>>
+#define vvb vector<vector<bool>>
+#define vvc vector<vector<char>>
 #define vvll vector<vector<long long int>>
 #define vc vector<char>
 #define vll vector<long long>
