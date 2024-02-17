@@ -108,7 +108,7 @@ bool issorted(vector<int> &arr){
 
 void solve(){
     //* Write code here
-    
+
 }
 int main(){
     ios_base::sync_with_stdio(false); 
