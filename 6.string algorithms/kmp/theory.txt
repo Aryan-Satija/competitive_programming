@@ -1,0 +1,12 @@
+vector<int> kmp(string str){
+    int n = str.size();
+    vector<int> dp(n, 0);
+    for(int i = 1; i < n; i++){
+        int l = dp[i-1];
+        while(l > 0 && str[l] != str[i]) l = dp[l-1];
+        if(ll == 0)
+            dp[i] = (str[i] == str[l]) ? 1 : 0;
+        else dp[i] = l + 1;
+    }
+    return dp;
+}

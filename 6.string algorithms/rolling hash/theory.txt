@@ -1,0 +1,40 @@
+class stringHash{
+    int modulo = 1e9+7;
+    long long prime1 = 27, prime2 = 31;
+    vector<long long> hash1, hash2;
+public:
+    stringHash(string s){
+        hash1.resize(s.size()+1, 0);
+        hash2.resize(s.size()+1, 0);
+        
+        for(int i = 1; i <= s.size(); i++){
+            hash1[i] = (hash1[i-1]*prime1 + ((s[i-1] - 'a') + 1)) % modulo;
+        } 
+        for(int i = 1; i <= s.size(); i++){
+            hash2[i] = (hash2[i-1]*prime2 + ((s[i-1] - 'a') + 1)) % modulo;
+        }
+    }
+
+    long long binexp(long long base, long long power){
+        if(power == 0) return 1;
+        if(power == 1) return base;
+        long long half = binexp(base, power/2);
+        if(power&1)
+            return (((half*half)%modulo)*base)%modulo;
+        return (half*half)%modulo;
+    }
+
+    long long substrHash1(int low, int high){
+        long long remaining = (hash1[low]* (binexp(prime1, high-low+1)))%modulo;
+        return (hash1[high+1] - remaining + modulo)%modulo;
+    }
+
+    long long substrHash2(int low, int high){
+        long long remaining = (hash2[low]* (binexp(prime2, high-low+1)))%modulo;
+        return (hash2[high+1] - remaining + modulo)%modulo;
+    }
+
+    pair<long long, long long> substrHash(int low, int high){
+        return {substrHash1(low, high), substrHash2(low, high)};
+    }
+};
