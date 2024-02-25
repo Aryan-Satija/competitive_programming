@@ -1,0 +1,55 @@
+
+------------------------ monotonic stack ---------------------------
+
+
+vector<int> nse(vector<int>& arr) {
+    vector<int> result(arr.size(), -1); 
+    stack<int> st;
+    for (int i = arr.size() - 1; i >= 0 ; i--) {
+        while (!st.empty() && arr[i] < arr[st.top()]) 
+            st.pop();
+        if(st.size() > 0) result[i] = st.top();
+        st.push(i);
+    }
+    return result;
+}
+
+vector<int> nge(vector<int>& arr) {
+    vector<int> result(arr.size(), -1); 
+    stack<int> st;
+    for (int i = arr.size() - 1; i >= 0 ; i--) {
+        while (!st.empty() && arr[i] > arr[st.top()]) 
+            st.pop();
+        if(st.size() > 0) result[i] = st.top();
+        st.push(i);
+    }
+    return result;
+}
+
+vector<int> pge(vector<int>& arr) {
+    vector<int> result(arr.size(), -1);
+    stack<int> st;
+    for (int i = 0; i < arr.size(); i++) {
+        while (!st.empty() && arr[i] > arr[st.top()]) 
+            st.pop();
+        if(st.size() > 0)
+            result[i] = st.top(); 
+
+        st.push(i);
+    }
+    return result;
+}
+
+vector<int> pse(vector<int>& arr) {
+    vector<int> result(arr.size(), -1);
+    stack<int> st;
+    for (int i = 0; i < arr.size(); i++) {
+        while (!st.empty() && arr[i] < arr[st.top()]) 
+            st.pop();
+        if(st.size() > 0)
+            result[i] = st.top(); 
+
+        st.push(i);
+    }
+    return result;
+}
