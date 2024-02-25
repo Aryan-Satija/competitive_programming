@@ -1,0 +1,29 @@
+class graph{
+public:
+    int n;
+    vector<vector<int>> adj;
+    graph(int n){
+        adj.resize(n);
+        this->n = n;
+    }
+
+    void add(int u, int v, int mode){
+        if(mode){
+            adj[u].push_back(v);
+            adj[v].push_back(u);
+        }
+        else{
+            adj[u].push_back(v);
+        }
+    }
+
+    void dfs(int node, vector<bool> &vis){
+        if(vis[node]) return;
+
+        vis[node] = true;
+
+        for(auto &nbr : adj[node]){
+            if(!vis[nbr]) dfs(nbr, vis);
+        }
+    }
+};
