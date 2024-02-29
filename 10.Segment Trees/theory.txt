@@ -1,0 +1,11 @@
+
+
+// given component can be used for testing the segment tree
+
+void test(int low, int high, vi &segmentTree, int idx){
+  cout << low << "  " << high << " -----> " << segmentTree[idx] << endl; 
+  if(low == high) return;
+  int mid = (low + high)/2;
+  print(low, mid, segmentTree, 2*idx + 1);
+  print(mid+1, high, segmentTree, 2*idx + 2);
+}
