@@ -1,4 +1,5 @@
 => gcd => greatest common divisor
+-----------------------------------------------------------------------------
 => euclid's algorithm (long division method)
 => gcd(a, b) = gcd(b%a, a)
 int gcd(a, b){
@@ -8,7 +9,63 @@ int gcd(a, b){
 
 => O(logn)
 => use cpp inbuilt function __gcd(a, b)
+------------------------------------------------------------------------------
 
+=> extended euclidean algorithm
+
+Q. find x1 and y1
+a*x1 + b*y1 = gcd(a, b) = g
+
+(b%a)*x2 + a*y2 = gcd(b%a, a) = g
+
+(a%(b%a))*x3 + (b%a)*y3 = gcd(a%(b%a), (b%a)) = g
+
+.....
+
+g*xn + 0*yn = g
+
+
+
+hence xn = 1, yn = 0 (one of the possible values of yn)
+
+but we need x1, y1
+
+b%a = b - (a * floor((b/a)))
+
+so, (b - (a * floor(b/a)))*x2 + ay2 = g
+
+b*x2 + a(y2 - x2*(floor(b/a))) = g
+
+so, y1 = x2
+x1 = (y2 - (x2*(floor(b/a))))
+
+so, yi = xi+1
+xi = (yi+1 - (xi+1*(floor(b/a))))
+------------------------------------------------------------------------------
+
+linear diophantine equation
+a*x + b*y = k*gcd(a, b)
+
+a*(x/k) + b*(y/k) = gcd(a, b)
+a*x' + b*y' = gcd(a, b)
+find x', y'
+
+then x = k*x'
+y = k*y'
+
+------------------------------------------------------------------------------
+fibonacci numbers
+tn = tn-1 + tn-2
+t0= 0
+t1 = 1
+
+tribonacci numbers
+tn = tn-1 + tn-2 + tn-3
+
+t0 =0
+t1 = 1
+t2 = 1
+-------------------------------------------------------------------------------
 => lcm => least common multiple
 => gcd(a, b)*lcm(a, b) = a*b
 => proof:
@@ -17,8 +74,10 @@ int gcd(a, b){
 => lcm(a, b) = (p1^(max(x, y)))*(p2^(max(v, y)))....
 => gcd(a, b) = (p1^(min(x, y)))*(p2^(min(v, y)))....
 
+------------------------------------------------------------------------------
 => goldbach's conjecture:
 => (every even number can be written as a sum of two primes)
+------------------------------------------------------------------------------
 
 => calculating divisors of a number
 => O(sqrt(n))
@@ -33,17 +92,33 @@ int gcd(a, b){
 V
 => IF I DIVISOR (N/I) ALSO DIVISOR
 
+------------------------------------------------------------------------------
+
 => sieve algorithm
 => O(nlog(logn))
 
+------------------------------------------------------------------------------
 
 => (a+b)%m = ((a%m) + (b%m))%m
 => (a-b)%m = ((a%m) - (b%m) + m)%m
 => (a*b)%m = ((a%m) * (b%m))%m
+
+
+
+
 => (a/b)%m = (a*(b^-1))%m
+
 =>         = (a%m * (b^-1)%m)%m
+
 => now , (b^-1)%m is known as mmi(modular multiplicative inverse) of b
+
 => if (a*x)%m = 1, for some x < n, then this x would be the mmi of a
+
 => now, by fermat's little theorem,
-=> (b^(m-1)%m) = 1, also known as the congruency of numbers 
+
+=> ((b^(m-1))%m) = 1, also known as the congruency of numbers 
+
 => so, (b^-1)%m = (b^(m-2))%m
+
+------------------------------------------------------------------------------
+
