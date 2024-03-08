@@ -129,3 +129,51 @@ prime factorisation
 
 => calculate sieve (store greatest ptime number that can divide that number in the sieve array)
 => O(logn)
+
+-----------------------------------------------------------------------------
+
+=> chinese remainder theorem
+
+let us say,
+
+x%p1 = k1
+x%p2 = k2
+...
+x%pn = kn
+
+then, by crt 
+there will be a solution of x from 0 to p-1
+where p = p1*p2*...pn
+
+or in other words x%p = 0
+
+
+=> condition required for crt
+
+p1, p2, ...pn are pairwise coprime
+
+=> proof of chinese remainder theorem by garner's algorithm
+
+x = x1 + x2*p1 + x3*p1*p2 + .... + xn*p1*p2*p3..p(n-1)
+
+
+x%p1 = x1%p1
+k1 = x1%p1
+-----------------
+x1 = k1
+-----------------
+
+
+x%p2 = (x1 + x2*p1)%p2
+k2%p2 =  (x1 + x2*p1)%p2
+x2 = ((k2 - k1)/p1)%p2
+-----------------
+x2 = (k2 - k1)%p2  * (p1^-1)%p2
+-----------------
+
+
+similarly,
+
+-----------------
+x3 = ((k3 - x1 - x2*p1)*(p1^-1)*(p2^-1))%p3
+-----------------
