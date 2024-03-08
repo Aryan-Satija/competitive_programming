@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 #define mod 1000000007
-
+ 
 #define ll long long
 #define pii pair<int, int>
 #define pll pair<long long, long long>
@@ -19,9 +19,10 @@ using namespace std;
 #define si set<int>
 #define rep(i, s, e) for(ll i = s; i <= e; i++)
 #define ren(i, s, e) for(ll i = s; i >= e; i--)
-
-int solve(){
+ 
+void solve(){
     //* Write code here
+    
 }
 int main(){
     ios_base::sync_with_stdio(false); 

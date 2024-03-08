@@ -122,3 +122,10 @@ V
 
 ------------------------------------------------------------------------------
 
+prime factorisation
+
+=> simple approach
+=> O(sqrt(n))
+
+=> calculate sieve (store greatest ptime number that can divide that number in the sieve array)
+=> O(logn)
