@@ -1,3 +1,6 @@
+// https://codeforces.com/problemset/problem/1042/B
+// 1200
+
 #include <bits/stdc++.h>
 using namespace std;
  
