@@ -4,7 +4,7 @@ vector<int> kmp(string str){
     for(int i = 1; i < n; i++){
         int l = dp[i-1];
         while(l > 0 && str[l] != str[i]) l = dp[l-1];
-        if(ll == 0)
+        if(l == 0)
             dp[i] = (str[i] == str[l]) ? 1 : 0;
         else dp[i] = l + 1;
     }
