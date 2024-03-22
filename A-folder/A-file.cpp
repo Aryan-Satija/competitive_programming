@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 #define mod 1000000007
- 
+
 #define ll long long
 #define pii pair<int, int>
 #define pll pair<long long, long long>
@@ -17,20 +17,23 @@ using namespace std;
 #define mii map<int, int>
 #define umii unordered_map<int, int>
 #define si set<int>
-#define rep(i, s, e) for(ll i = s; i <= e; i++)
-#define ren(i, s, e) for(ll i = s; i >= e; i--)
- 
+#define rep(i, s, e) for (ll i = s; i <= e; i++)
+#define ren(i, s, e) for (ll i = s; i >= e; i--)
+
 void solve(){
-    //* Write code here
-    
+    //* write your code here
+
 }
-int main(){
-    ios_base::sync_with_stdio(false); 
-    cin.tie(NULL);   
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     cout.tie(NULL);
     int t;
     cin >> t;
-    while(t--){
-        solve(); 
+    while (t--)
+    {
+        solve();
     }
-} 
+}
