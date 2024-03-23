@@ -24,48 +24,31 @@ void solve(){
     //* write your code here
     int n;
     cin >> n;
-
-    vvi path(2, vi(n));
-
-    string row;
-
-    cin >> row;
-    rep(i, 0, n-1)
-        path[0][i] = (row[i] - '0');
-
-    cin >> row;
-    rep(i, 0, n-1)
-        path[1][i] = (row[i] - '0');
-
-    string res = "";
-
-    int id = 0;
-    while(id < n-1){
-        res += ('0' + path[0][id]);
-        if(path[0][id + 1] > path[1][id])
-            break;
-        id++;
+    vi a(n);
+    rep(i, 0, n-1) cin >> a[i];
+    vi l, r;
+    l.push_back(1e9);
+    r.push_back(1e9);
+    ll penalty = 0;
+    rep(i, 0, n-1){
+        if(a[i] > l.back() and a[i] <= r.back())
+            r.push_back(a[i]);
+        else if(a[i] > r.back() and a[i] <= l.back())
+            l.push_back(a[i]);
+        else{
+            if(l.back() < r.back()){
+                if(a[i] > l.back())
+                    penalty++;
+                l.push_back(a[i]);
+            }
+            else{
+                if(a[i] > r.back())
+                    penalty++;
+                r.push_back(a[i]);
+            }
+        }
     }
-    
-    if(id == n-1) res += ('0' + path[0][id]);
-    
-    while(id < n)
-        res += ('0' + path[1][id++]);
-    
-
-    cout << res << endl;
-
-    vvi dp(2, vi(n, 0));
-    dp[0][0] = 1;
-    dp[1][0] = ((res[1] - '0') == path[1][0]? 1 : 0);
-    
-    rep(i, 1, n-1){
-      if((res[i] - '0') == path[0][i]) dp[0][i] = dp[0][i-1];
-      if((res[i+1] - '0') == path[1][i]) dp[1][i] = dp[0][i] + dp[1][i-1];
-    }
-    
-    cout << dp[1][n-1] << endl;
-     
+    cout << penalty << endl;
 }
 
 int main()
