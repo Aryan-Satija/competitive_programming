@@ -1,8 +1,12 @@
+// https://codeforces.com/contest/1847/problem/C
+// Vampire Powers, anyone
+
+
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 #define mod 1000000007
-
+ 
 #define ll long long
 #define pii pair<int, int>
 #define pll pair<long long, long long>
@@ -19,12 +23,33 @@ using namespace std;
 #define si set<int>
 #define rep(i, s, e) for (ll i = s; i <= e; i++)
 #define ren(i, s, e) for (ll i = s; i >= e; i--)
-
+ 
 void solve(){
     //* write your code here
-    
+    int n;
+    cin >> n;
+    vi a(n);
+ 
+    rep(i, 0, n-1) cin >> a[i];
+ 
+    vb pres(256, false);
+    pres[0] = true;
+ 
+    ll res = 0;
+    ll pre = 0;
+    rep(i, 0, n-1){
+      pre = (pre ^ a[i]);
+      pres[pre] = true;
+      rep(j, 0, 255){
+        if(pres[j]){
+          res = max(res, (pre ^ j));
+        }
+      }
+    }
+ 
+    cout << res << endl;
 }
-
+ 
 int main()
 {
     ios_base::sync_with_stdio(false);
