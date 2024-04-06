@@ -20,9 +20,32 @@ using namespace std;
 #define rep(i, s, e) for (ll i = s; i <= e; i++)
 #define ren(i, s, e) for (ll i = s; i >= e; i--)
 
+
 void solve(){
     //* write your code here
+    ll n, k;
+    cin >> n >> k;
+    if(k > 28){
+        cout << 0 << endl;
+        return;
+    }
+    vll fibb(k-1, 1);
+    rep(i, 3, k-1){
+        fibb[i-1] = fibb[i-2] + fibb[i-3];
+    }
 
+    ll mb = fibb[k-2], ma = fibb[k-3];
+    // cout << mb << " " << ma << endl;
+    
+    ll cnt = 0;
+    rep(a, 0, n){
+        ll tmp = (n - (a*ma)); 
+        if(tmp >= 0 and tmp%mb == 0){
+            if(a <= tmp/mb)
+              cnt++;
+        }
+    }
+    cout << cnt << endl;
 }
 
 int main()
