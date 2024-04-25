@@ -1,5 +1,12 @@
 // https://leetcode.com/problems/find-edges-in-shortest-paths/
 // LEETCODE -> HARD  
+// intuitive solution will be to find the shortest path for 0 to every other noe and from n-1 to every other node
+
+// for some edge
+// x ------- y
+// this edge to be included, we need to ensure that if
+// dist[0...x] + edge_weight + dist[y ... (n-1)] == dist[x ... y]
+// then include the edge.
 
 #include <bits/stdc++.h>
 using namespace std;
