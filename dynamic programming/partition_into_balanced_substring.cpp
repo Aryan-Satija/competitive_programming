@@ -1,3 +1,6 @@
+// LEETCODE -> MEDIUM
+// https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency/
+
 #include <bits/stdc++.h>
 using namespace std;
 
