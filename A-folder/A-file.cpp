@@ -22,7 +22,7 @@ using namespace std;
 
 void solve(){
     //* write your code here
-    
+
 }
 
 int main()
